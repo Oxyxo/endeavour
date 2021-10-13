@@ -5,3 +5,4 @@ anagram and Rijksmuseum API
 ```
 node anagrams.js
 ```
+2. For task two refer to RijksmuseumApp folder.
