@@ -1,0 +1,34 @@
+<main class="d-flex flex-row w-75 mx-auto">
+<div class="align-self-stretch" style="width: 100%;">
+
+    Type your search here
+    <input type="text" #search (keyup.enter)="update(search.value)"><br>
+    <div>
+    <p>Found {{ results}} results, {{ totalPages }} pages</p>
+    <nav>
+        <ul class="pagination search-pagination">
+        <li class="page-item"><a class="page-link" href="#" (click)="previousPage()">Previous</a></li>          
+        <li class="page-item"><a class="page-link" >{{ pageNumber }}</a></li>
+        <li class="page-item"><a class="page-link" href="#" (click)="nextPage()">Next</a></li>
+        </ul>
+    </nav>      
+    </div>   
+</div>
+
+<article class="align-self-stretch">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col" *ngFor="let art of artObjects">
+        <a [routerLink]="['/details',art.objectNumber]">
+        <div class="card">
+        <img [src]="art.webImage.url" class="card-img-top img-scale" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ art.title }}</h5>
+            <p class="card-text">{{ art.principalOrFirstMaker}}, <span *ngFor="let city of art.productionPlaces">{{ city }}</span></p>
+        </div>
+        </div></a>
+    </div>  
+    <p *ngIf="artObjects.length==0">Sorry, your search gave no results. Try to search something different?</p> 
+    
+    </div>
+</article>
+</main>

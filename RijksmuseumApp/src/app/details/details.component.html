@@ -1,0 +1,10 @@
+<div class = "bg-light">
+    <img [src]="art.webImage.url" class="img-fluid d-block mx-auto">
+</div>
+<div class = "m-5">
+    <h1>Title: {{ title }}</h1>
+    <p>Description: {{art.description}}</p>
+    <p>Productions place(s): <span *ngFor = "let city of art.productionPlaces">{{city}}</span></p>
+    <a [routerLink]="['/']"><button class= "btn btn-primary">Return to search</button></a>
+</div>
+
