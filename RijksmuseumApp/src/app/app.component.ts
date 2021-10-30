@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ApiService } from './api.service';
 
 @Component({
   selector: 'app-root',
@@ -8,21 +7,7 @@ import { ApiService } from './api.service';
 
 })
 export class AppComponent {
-  title = 'RijksmuseumApp';
-  artObjects: any;
-  userSearch = "poop"
-  constructor(private service: ApiService) {
-    this.fetchUserSearch();
+  goToTop() {
+    window.scrollTo(0, 0);
   }
-  update(value: string) {
-    this.userSearch = value
-    this.fetchUserSearch();
-  }
-  fetchUserSearch() {
-    this.service.fetchCollection(this.userSearch).subscribe((data) => {
-      console.log(data)
-      this.artObjects = data.artObjects
-    })
-  }
-
 }
